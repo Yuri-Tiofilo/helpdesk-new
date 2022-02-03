@@ -4,6 +4,7 @@ export const Container = styled.TouchableOpacity`
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  padding-top: 10px;
 `;
 
 export const Title = styled.Text`

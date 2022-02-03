@@ -11,7 +11,7 @@ export const Title = styled.Text`
 `;
 
 export const Footer = styled.View`    
-  flex-direction: row;
+  flex-direction: column;
   justify-content: space-between;
   align-items: center; 
   margin-top: 50px; 
