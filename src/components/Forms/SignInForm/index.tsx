@@ -30,6 +30,13 @@ export function SignInForm() {
   }
 
   function handleForgotPassword() {
+    auth()
+    .sendPasswordResetEmail(email)
+    .then(() => {
+      Alert.alert('Password', "Enviamos um email para redefinir sua senha")
+    })
+    .catch((error) => console.log('deu ruim', error))
+    .finally()
   }
 
   return (
