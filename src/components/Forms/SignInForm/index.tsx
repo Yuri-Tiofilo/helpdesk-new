@@ -30,11 +30,18 @@ export function SignInForm() {
   }
 
   function handleForgotPassword() {
+    auth()
+      .sendPasswordResetEmail(email)
+      .then(() => {
+        Alert.alert('Password', "Enviamos um email para redefinir sua senha")
+      })
+      .catch((error) => console.log('deu ruim', error))
+      .finally()
   }
 
   return (
     <Form>
-      <Title>Entrar O CARALHO</Title>
+      <Title>Entrar</Title>
       <Input placeholder="E-mail" onChangeText={setEmail} />
       <Input placeholder="Senha" secureTextEntry onChangeText={setPassword} />
       <Button title="Entrar" onPress={handleSignIn} isLoading={isLoading} />
