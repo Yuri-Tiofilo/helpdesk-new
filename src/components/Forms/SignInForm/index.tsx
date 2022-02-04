@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 
-import auth from '@react-native-firebase/auth';
+import auth from "@react-native-firebase/auth";
 
 import { FooterButton } from "@components/Controllers/FooterButton";
 import { Button } from "@components/Controllers/Button";
@@ -22,21 +22,24 @@ export function SignInForm() {
     auth()
       .signInWithEmailAndPassword(email, password)
       .then(() => {
-        Alert.alert('Login', "Bem vindo")
-        setIsLoading(false)
+        Alert.alert("Login", "Bem vindo");
       })
-      .catch((error) => console.log('deu ruim', error))
-      .finally()
+      .catch((error) => {
+        setIsLoading(false);
+        Alert.alert("Erro ao tentar realizar login", "Tente novamente");
+        console.log("deu ruim", error);
+      })
+      .finally();
   }
 
   function handleForgotPassword() {
     auth()
       .sendPasswordResetEmail(email)
       .then(() => {
-        Alert.alert('Password', "Enviamos um email para redefinir sua senha")
+        Alert.alert("Password", "Enviamos um email para redefinir sua senha");
       })
-      .catch((error) => console.log('deu ruim', error))
-      .finally()
+      .catch((error) => console.log("deu ruim", error))
+      .finally();
   }
 
   return (
